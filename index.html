@@ -9,6 +9,31 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+.music-btn{
+position:fixed;
+top:20px;
+right:20px;
+z-index:9999;
+
+width:60px;
+height:60px;
+
+border:none;
+border-radius:50%;
+
+background:rgba(139,106,79,.9);
+color:white;
+
+font-size:24px;
+cursor:pointer;
+
+box-shadow:0 4px 15px rgba(0,0,0,.2);
+}
+
+.music-btn:hover{
+transform:scale(1.05);
+}
+  
 <style>
 
 *{
@@ -206,6 +231,12 @@ font-size:38px;
 
 <body>
 
+<button id="musicBtn" class="music-btn">🎵</button>
+
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <audio id="bgMusic" autoplay loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -308,10 +339,24 @@ target="_blank">
 
 <script>
 
-document.addEventListener('click', () => {
-  const music = document.getElementById('bgMusic');
-  music.play();
-}, { once:true });
+const music = document.getElementById('bgMusic');
+const btn = document.getElementById('musicBtn');
+
+let playing = false;
+
+btn.addEventListener('click', () => {
+
+  if(!playing){
+    music.play();
+    btn.innerHTML = '🔊';
+    playing = true;
+  }else{
+    music.pause();
+    btn.innerHTML = '🎵';
+    playing = false;
+  }
+
+});
 
 </script>
 
