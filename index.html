@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="kk">
 <head>
@@ -14,158 +15,174 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
 font-family:'Cormorant Garamond',serif;
-background:#f7f1ea;
+background:#f7f0e8;
 color:#6b4c34;
 overflow-x:hidden;
 }
 
-.hero{
+section{
+position:relative;
 min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:30px;
-background:
-linear-gradient(rgba(247,241,234,.85),rgba(247,241,234,.92)),
-url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600&auto=format&fit=crop');
-background-size:cover;
-background-position:center;
+padding:40px 20px;
 }
 
-.hero-content{
-max-width:800px;
+.bg{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:0;
 }
 
-.subtitle{
-letter-spacing:8px;
-font-size:20px;
-margin-bottom:20px;
+.overlay{
+position:absolute;
+inset:0;
+background:rgba(255,255,255,.15);
+z-index:1;
+}
+
+.content{
+position:relative;
+z-index:2;
+max-width:900px;
 }
 
 .title{
 font-size:90px;
 font-weight:700;
-margin-bottom:15px;
+margin-bottom:20px;
 }
 
-.names{
-font-size:60px;
-margin-bottom:25px;
+.subtitle{
+font-size:36px;
 }
 
-.text{
-font-size:32px;
-line-height:1.5;
+.text-box{
+background:rgba(255,255,255,.65);
+backdrop-filter:blur(5px);
+padding:40px;
+border-radius:20px;
 max-width:800px;
 margin:auto;
 }
 
-.section{
-padding:90px 20px;
-text-align:center;
+.text-box h2{
+font-size:58px;
+margin-bottom:25px;
 }
 
-.section h2{
-font-size:60px;
-margin-bottom:20px;
+.text-box p{
+font-size:34px;
+line-height:1.6;
 }
 
-.date{
-font-size:56px;
-font-weight:700;
+.signature{
+margin-top:30px;
+font-size:42px;
+font-weight:600;
 }
 
-.time{
-font-size:40px;
+.info-box{
+background:rgba(255,255,255,.7);
+padding:40px;
+border-radius:20px;
+backdrop-filter:blur(5px);
+}
+
+.info{
+margin:25px 0;
+font-size:42px;
+}
+
+.info strong{
+display:block;
+font-size:58px;
 margin-top:10px;
 }
 
 .timer{
 display:flex;
 justify-content:center;
-gap:20px;
+gap:15px;
 flex-wrap:wrap;
-margin-top:40px;
+margin-top:30px;
 }
 
-.box{
+.timer div{
 background:white;
-padding:25px;
-border-radius:20px;
-min-width:120px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+padding:18px;
+border-radius:15px;
+min-width:95px;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
 
-.box span{
+.timer span{
 display:block;
-font-size:42px;
-font-weight:700;
-}
-
-.box small{
-font-size:18px;
-}
-
-.place{
-font-size:44px;
-margin-top:20px;
+font-size:36px;
+font-weight:bold;
 }
 
 .btn{
 display:inline-block;
-margin-top:30px;
-padding:18px 45px;
+margin-top:25px;
+padding:16px 40px;
 background:#8b6a4f;
 color:white;
 text-decoration:none;
-border-radius:50px;
+border-radius:40px;
 font-size:28px;
-transition:.3s;
 }
 
-.btn:hover{
-transform:translateY(-3px);
+.arrow{
+position:absolute;
+bottom:25px;
+left:50%;
+transform:translateX(-50%);
+font-size:40px;
+color:#8b6a4f;
+animation:updown 1.5s infinite;
+z-index:5;
 }
 
-footer{
-padding:70px 20px;
-text-align:center;
-font-size:28px;
+@keyframes updown{
+0%,100%{transform:translateX(-50%) translateY(0);}
+50%{transform:translateX(-50%) translateY(10px);}
 }
 
 @media(max-width:768px){
 
 .title{
-font-size:56px;
+font-size:60px;
 }
 
-.names{
-font-size:42px;
-}
-
-.text{
+.subtitle{
 font-size:24px;
 }
 
-.section h2{
-font-size:42px;
-}
-
-.date{
+.text-box h2{
 font-size:40px;
 }
 
-.place{
-font-size:30px;
+.text-box p{
+font-size:24px;
 }
 
-.btn{
-font-size:22px;
+.info{
+font-size:28px;
+}
+
+.info strong{
+font-size:38px;
 }
 
 }
@@ -175,68 +192,77 @@ font-size:22px;
 
 <body>
 
-<section class="hero">
+<section>
 
-<div class="hero-content">
+<img src="cover.jpg" class="bg">
+<div class="overlay"></div>
 
-<div class="subtitle">ҚҰДАЛЫҚ</div>
+<div class="content">
 
-<h1 class="title">Бауыржан & Бақыт</h1>
+<div class="title">Құдалық</div>
 
-<div class="text">
+<div class="subtitle">
+Қадірлі қонақ болуға шақырамыз
+</div>
+
+</div>
+
+<div class="arrow">↓</div>
+
+</section>
+
+<section>
+
+<img src="invite.jpg" class="bg">
+<div class="overlay"></div>
+
+<div class="content">
+
+<div class="text-box">
+
+<h2>ҚҰРМЕТТІ ҚОНАҚТАР!</h2>
+
+<p>
 Сіздерді екі әулеттің сыйластығы мен бірлігін арттыратын
 құдалық рәсіміне арналған ақ дастарханымыздың қадірлі
 қонағы болуға шақырамыз.
+Келіп, қуанышымызға ортақ болып,
+баталарыңызбен бөлісіңіздер!
+</p>
+
+<div class="signature">
+Ізгі тілекпен,<br>
+Рахат-Асем
 </div>
 
-</div>
-
-</section>
-
-<section class="section">
-
-<h2>ҚҰДАЛЫҚ КҮНІ</h2>
-
-<div class="date">
-15-шілде, 2026
-</div>
-
-<div class="time">
-сағат 12:00
-</div>
-
-<div class="timer">
-
-<div class="box">
-<span id="days">0</span>
-<small>КҮН</small>
-</div>
-
-<div class="box">
-<span id="hours">0</span>
-<small>САҒАТ</small>
-</div>
-
-<div class="box">
-<span id="minutes">0</span>
-<small>МИНУТ</small>
-</div>
-
-<div class="box">
-<span id="seconds">0</span>
-<small>СЕКУНД</small>
 </div>
 
 </div>
 
 </section>
 
-<section class="section">
+<section>
 
-<h2>Өтетін орны</h2>
+<img src="details.jpg" class="bg">
+<div class="overlay"></div>
 
-<div class="place">
-"Рахат" мейрамханасы
+<div class="content">
+
+<div class="info-box">
+
+<div class="info">
+Мерекенің күні
+<strong>15 ШІЛДЕ 2026</strong>
+</div>
+
+<div class="info">
+Басталу уақыты
+<strong>12:00</strong>
+</div>
+
+<div class="info">
+Өтетін орны
+<strong>"Рахат" мейрамханасы</strong>
 </div>
 
 <a class="btn"
@@ -245,42 +271,50 @@ target="_blank">
 Картаға өту
 </a>
 
+<div class="timer">
+
+<div><span id="days">0</span>КҮН</div>
+<div><span id="hours">0</span>САҒАТ</div>
+<div><span id="minutes">0</span>МИНУТ</div>
+<div><span id="seconds">0</span>СЕКУНД</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
-
-<footer>
-
-Ізгі тілекпен<br>
-Рахат – Әсем
-
-</footer>
 
 <script>
 
-const targetDate = new Date("July 15, 2026 12:00:00").getTime();
+const targetDate =
+new Date("2026-07-15T12:00:00").getTime();
 
 function updateTimer(){
 
 const now = new Date().getTime();
 const distance = targetDate - now;
 
-document.getElementById('days').innerHTML =
+document.getElementById("days").innerHTML =
 Math.floor(distance/(1000*60*60*24));
 
-document.getElementById('hours').innerHTML =
+document.getElementById("hours").innerHTML =
 Math.floor((distance%(1000*60*60*24))/(1000*60*60));
 
-document.getElementById('minutes').innerHTML =
+document.getElementById("minutes").innerHTML =
 Math.floor((distance%(1000*60*60))/(1000*60));
 
-document.getElementById('seconds').innerHTML =
+document.getElementById("seconds").innerHTML =
 Math.floor((distance%(1000*60))/1000);
 
 }
 
-setInterval(updateTimer,1000);
 updateTimer();
+setInterval(updateTimer,1000);
 
 </script>
 
 </body>
 </html>
+```
