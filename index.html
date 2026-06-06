@@ -206,6 +206,10 @@ font-size:38px;
 
 <body>
 
+<audio id="bgMusic" autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <section>
 
 <img src="cover.jpg" class="bg">
@@ -301,6 +305,15 @@ target="_blank">
 </div>
 
 </section>
+
+<script>
+
+document.addEventListener('click', () => {
+  const music = document.getElementById('bgMusic');
+  music.play();
+}, { once:true });
+
+</script>
 
 <script>
 
